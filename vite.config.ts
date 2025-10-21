@@ -50,8 +50,16 @@
       },
     },
     build: {
-      target: 'esnext',
-      outDir: 'build',
+      outDir: 'dist',
+      sourcemap: true,
+      minify: 'esbuild',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom'],
+          },
+        },
+      },
     },
     server: {
       port: 3000,
